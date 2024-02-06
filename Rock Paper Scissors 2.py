@@ -16,7 +16,7 @@ playerWin = 0
 
 while player == 1:
    #If move results in a tie:
-    player = input("Rock, Paper, or Scissors? ")
+    player = input("Rock, Paper, or Scissors? ").title()
     computer = t[randint(0,2)]
     if player == computer:
         print("Tie!")
@@ -75,8 +75,8 @@ while player == 1:
     
     #Play again or quit
     print("")
-    ch=input("Do you wish to continute? (Y/N)") 
-    if ch=="Y" or "y":
+    ch=input("Do you wish to continute? (Y/N)").upper()
+    if ch=="Y":
         player = 1
         computer = t[randint(0,2)]
 
