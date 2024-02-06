@@ -18,6 +18,9 @@ while player == 1:
    #If move results in a tie:
     player = input("Rock, Paper, or Scissors? ").title()
     computer = t[randint(0,2)]
+   
+    print()   
+
     if player == computer:
         print("Tie!")
         print("Score")
@@ -27,12 +30,14 @@ while player == 1:
    #If player plays Rock
     elif player == "Rock":
         if computer == "Paper":
+            print("Computer plays Paper... ")
             print("Sorry, you lost!" , computer, "covers", player)
             computerWin+=1
             print("Score")
             print("Computer win: ", computerWin)
             print("Player win: ", playerWin)
         else:
+            print("Computer plays Scissors... ")
             print("You win!", player, "smashes", computer)
             playerWin+=1
             print("Score")
@@ -42,12 +47,14 @@ while player == 1:
     #If player plays Paper
     elif player == "Paper":
         if computer == "Scissors":
+            print("Computer plays Scissors... ")
             print("Sorry, you lost!", computer, "cut", player)
             computerWin+=1
             print("Score")
             print("Computer win: ", computerWin)
             print("Player win: ", playerWin)
         else:
+            print("Computer plays Rock... ")
             print("You win!", player, "covers", computer)
             playerWin+=1
             print("Score")
@@ -57,12 +64,14 @@ while player == 1:
    #If player plays Scissors
     elif player == "Scissors":
         if computer == "Rock":
+            print("Computer plays Rock... ")
             print("Sorry, you lost!", computer, "smashes", player)
             computerWin+=1
             print("Score")
             print("Computer win: ", computerWin)
             print("Player win: ", playerWin)
         else:
+            print("Computer plays Paper... ")
             print("You win!", player, "cut", computer)
             playerWin+=1
             print("Score")
