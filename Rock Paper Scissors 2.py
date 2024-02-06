@@ -92,7 +92,7 @@ while player == 1:
     
     #Play again or quit
     print("")
-    ch=input("Do you wish to continute? (Y/N)").upper()
+    ch=input("Do you wish to continute? (Y/N): ").upper()
     if ch=="Y":
         player = 1
         computer = t[randint(0,2)]
