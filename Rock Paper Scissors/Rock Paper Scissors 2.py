@@ -23,6 +23,7 @@ while player == 1:
 #If move results in a tie
     if player == computer:
         print("Tie!")
+        print()
         print("Score: ")
         print("Computer win: ", computerWin)
         print("Player win: ", playerWin)
