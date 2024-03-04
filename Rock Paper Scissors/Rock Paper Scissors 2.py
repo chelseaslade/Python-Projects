@@ -14,91 +14,100 @@ player = 1
 computerWin = 0
 playerWin = 0
 
-while player == 1:
-    print()
-    player = input("Rock, Paper, or Scissors? ").title()
-    computer = t[randint(0,2)]
-    print()   
+#Main Program Loop
 
-#If move results in a tie
-    if player == computer:
-        print("Tie!")
-        print("Score: ")
-        print("Computer win: ", computerWin)
-        print("Player win: ", playerWin)
-   
-   #If player plays Rock
-    elif player == "Rock":
-        if computer == "Paper":
-            print("Computer plays Paper... ")
-            print("Sorry, you lost!" , computer, "covers", player)
-            computerWin+=1
-            print()
-            print("Score: ")
-            print("Computer win: ", computerWin)
-            print("Player win: ", playerWin)
-        else:
-            print("Computer plays Scissors... ")
-            print("You win!", player, "smashes", computer)
-            playerWin+=1
-            print()
-            print("Score: ")
-            print("Computer win: ", computerWin)
-            print("Player win: ", playerWin)
-    
-    #If player plays Paper
-    elif player == "Paper":
-        if computer == "Scissors":
-            print("Computer plays Scissors... ")
-            print("Sorry, you lost!", computer, "cut", player)
-            computerWin+=1
-            print()
-            print("Score: ")
-            print("Computer win: ", computerWin)
-            print("Player win: ", playerWin)
-        else:
-            print("Computer plays Rock... ")
-            print("You win!", player, "covers", computer)
-            playerWin+=1
-            print()
-            print("Score: ")
-            print("Computer win: ", computerWin)
-            print("Player win: ", playerWin)
-   
-   #If player plays Scissors
-    elif player == "Scissors":
-        if computer == "Rock":
-            print("Computer plays Rock... ")
-            print("Sorry, you lost!", computer, "smashes", player)
-            computerWin+=1
-            print()
-            print("Score: ")
-            print("Computer win: ", computerWin)
-            print("Player win: ", playerWin)
-        else:
-            print("Computer plays Paper... ")
-            print("You win!", player, "cut", computer)
-            playerWin+=1
-            print()
-            print("Score: ")
-            print("Computer win: ", computerWin)
-            print("Player win: ", playerWin)
-   
-   #If incorrect input
-    else:
+mainLoop = True
+while mainLoop==True:
+
+    while player == 1:
         print()
-        print("Invalid input, please check your spelling!")
-        print()
-    
-    #Play again or quit
-    print("")
-    ch=input("Do you wish to continute? (Y/N): ").upper()
-    if ch=="Y":
-        player = 1
+        player = input("Rock, Paper, or Scissors? ").title()
         computer = t[randint(0,2)]
+        print()   
 
-    else:
-        print()
-        print("Thank you for playing!")
-        print()
-        break
+    #If move results in a tie
+        if player == computer:
+            print("Tie!")
+            print()
+            print("Score: ")
+            print("Computer win: ", computerWin)
+            print("Player win: ", playerWin)
+    
+    #If player plays Rock
+        elif player == "Rock":
+            if computer == "Paper":
+                print("Computer plays Paper... ")
+                print("Sorry, you lost!" , computer, "covers", player)
+                computerWin+=1
+                print()
+                print("Score: ")
+                print("Computer win: ", computerWin)
+                print("Player win: ", playerWin)
+            else:
+                print("Computer plays Scissors... ")
+                print("You win!", player, "smashes", computer)
+                playerWin+=1
+                print()
+                print("Score: ")
+                print("Computer win: ", computerWin)
+                print("Player win: ", playerWin)
+        
+        #If player plays Paper
+        elif player == "Paper":
+            if computer == "Scissors":
+                print("Computer plays Scissors... ")
+                print("Sorry, you lost!", computer, "cut", player)
+                computerWin+=1
+                print()
+                print("Score: ")
+                print("Computer win: ", computerWin)
+                print("Player win: ", playerWin)
+            else:
+                print("Computer plays Rock... ")
+                print("You win!", player, "covers", computer)
+                playerWin+=1
+                print()
+                print("Score: ")
+                print("Computer win: ", computerWin)
+                print("Player win: ", playerWin)
+    
+    #If player plays Scissors
+        elif player == "Scissors":
+            if computer == "Rock":
+                print("Computer plays Rock... ")
+                print("Sorry, you lost!", computer, "smashes", player)
+                computerWin+=1
+                print()
+                print("Score: ")
+                print("Computer win: ", computerWin)
+                print("Player win: ", playerWin)
+            else:
+                print("Computer plays Paper... ")
+                print("You win!", player, "cut", computer)
+                playerWin+=1
+                print()
+                print("Score: ")
+                print("Computer win: ", computerWin)
+                print("Player win: ", playerWin)
+    
+    #If incorrect input
+        else:
+            print()
+            print("Invalid input, please check your spelling!")
+            print()
+            player = 1
+            break
+        
+
+        #Play again or quit
+        print("")
+        ch=input("Do you wish to continute? (Y/N): ").upper()
+        if ch=="Y":
+            player = 1
+            computer = t[randint(0,2)]
+
+        else:
+            print()
+            print("Thank you for playing!")
+            print()
+            break
