@@ -2,6 +2,7 @@
 #Start Date: February 16
 #Author: Chelsea Slade
 
+
 #Import Libraries
 import datetime
 import sqlite3
@@ -15,7 +16,9 @@ continueProg = True
 while continueProg == True: 
 
 #User Inputs
+
   print()
+
   ptFirstName = input("Enter patients first name: ").title()
   ptLastName = input("Enter patients last name: ").title()
   ptDOB = input("Enter the patients date of birth (YEAR/MONTH/DAY, ex. 2000/01/30): ")
@@ -24,7 +27,9 @@ while continueProg == True:
   ptCity = input("Enter the patients city: ").title()
   ptPostalCode = input("Enter the patients postal code: ").upper()
   ptFamDoc = input("Enter the patients family doctor: ").title()
+
   print()
+
 
 #Calculations
 
