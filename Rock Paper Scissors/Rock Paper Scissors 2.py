@@ -98,4 +98,7 @@ while player == 1:
         computer = t[randint(0,2)]
 
     else:
+        print()
+        print("Thank you for playing!")
+        print()
         break
