@@ -10,6 +10,7 @@ from sqlite3 import Error
 
 #SQL Lite 3 Database
 
+
 try: 
   con = sqlite3.connect("patientRecords.db")
   cur = con.cursor()
@@ -24,16 +25,24 @@ try:
   print("SQLite version is {}".format(result))
   print()
 
-  cur.close()
+  patientTable = '''CREATE TABLE PATIENT(FNAME VARCHAR(255), LNAME VARCHAR(255)) ;'''
+  cur.execute(patientTable)
+
+  cur.execute('''INSERT INTO PATIENT (FNAME, LNAME) VALUES ("John", "Smith")''')
+  print("Data inserted in the table: ")
+  data=cur.execute('''SELECT * FROM PATIENT''')
+  for row in data:
+     print(row)
+
 
 except sqlite3.Error as error:
    print("Error occured -", error)
 
 finally: 
    if con:
+      con.commit()
       con.close()
       print("SQLite Connection Closed!")
-      
 
 
 #Constants
