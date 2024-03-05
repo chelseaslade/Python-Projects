@@ -10,61 +10,31 @@ from sqlite3 import Error
 
 #SQL Lite 3 Database
 
+try: 
+  con = sqlite3.connect("patientRecords.db")
+  cur = con.cursor()
+  print()
+  print("Database connection complete")
+  print()
 
-def create_connection(patientRecords):
-  # connection = sqlite3.connect("patientRecords.db")
-  conn = None
-  try:
-    conn = sqlite3.connect(patientRecords)
-    return conn
-  except Error as x: 
-    print(x)
-  # finally:
-  #   if conn:
-  #     conn.close()
+  query = "select sqlite_version();"
+  cur.execute(query)
 
-  return conn
+  result = cur.fetchall()
+  print("SQLite version is {}".format(result))
+  print()
 
-def create_table(conn, create_table_sql):
-  try:
-    c = conn.cursor()
-    c.execute(create_table_sql)
-  except Error as x:
-    print(x)
+  cur.close()
 
-def main():
-  
-  database = "patientRecords.db"
+except sqlite3.Error as error:
+   print("Error occured -", error)
 
-  sql_create_projects_table = """ CREATE TABLE projects (
-                                        id integer PRIMARY KEY,
-                                        name text NOT NULL,
-                                        begin_date text,
-                                        end_date text
-                                    ); """
+finally: 
+   if con:
+      con.close()
+      print("SQLite Connection Closed!")
+      
 
-  sql_create_tasks_table = """ CREATE TABLE tasks (
-                                    id integer PRIMARY KEY,
-                                    name text NOT NULL,
-                                    priority integer,
-                                    status_id integer NOT NULL,
-                                    project_id integer NOT NULL,
-                                    begin_date text NOT NULL,
-                                    end_date text NOT NULL,
-                                    FOREIGN KEY (project_id) REFERENCES projects (id)
-                              ); """
-
-  conn = create_connection("patientRecord=")
-  if conn is not None: 
-    create_table(conn, sql_create_projects_table)
-    create_table(conn, sql_create_tasks_table)
-    print("Success, tables created")
-
-  else:
-    print("Error! Cannot create database connection.")
-               
-if __name__ == '__main__':
-    main()
 
 #Constants
 
