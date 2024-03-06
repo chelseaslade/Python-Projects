@@ -6,8 +6,41 @@
 #Import Libraries
 import datetime
 import sqlite3
+from sqlite3 import Error
 
-connection = sqlite3.connect("patientRecords.db")
+#SQL Lite 3 Database
+
+
+try: 
+  con = sqlite3.connect("/Users/student/Documents/GitHub/Python-Projects/Patient Software/patientRecords.db")
+  cur = con.cursor()
+  print()
+  print("Database connection complete")
+  print()
+
+  query = "select sqlite_version();"
+  cur.execute(query)
+
+  result = cur.fetchall()
+  print("SQLite version is {}".format(result))
+  print()
+
+  patientTable = '''CREATE TABLE PATIENT(FNAME VARCHAR(255), LNAME VARCHAR(255)) ;'''
+  cur.execute(patientTable)
+
+  cur.execute('''INSERT INTO PATIENT (FNAME, LNAME) VALUES ("John", "Smith")''')
+  print("Data inserted in the table: ")
+
+
+except sqlite3.Error as error:
+   print("Error occured -", error)
+
+finally: 
+   if con:
+      con.commit()
+      con.close()
+      print("SQLite Connection Closed!")
+
 
 #Constants
 
