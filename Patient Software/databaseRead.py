@@ -1,8 +1,7 @@
-import datetime
 import sqlite3
 
 
-con = sqlite3.connect("patientRecords.db")
+con = sqlite3.connect("/Users/student/Documents/GitHub/Python-Projects/Patient Software/patientRecords.db")
 cur = con.cursor()
 print()
 print("Database connection complete")

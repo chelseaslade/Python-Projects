@@ -12,7 +12,7 @@ from sqlite3 import Error
 
 
 try: 
-  con = sqlite3.connect("patientRecords.db")
+  con = sqlite3.connect("/Users/student/Documents/GitHub/Python-Projects/Patient Software/patientRecords.db")
   cur = con.cursor()
   print()
   print("Database connection complete")
@@ -31,9 +31,6 @@ try:
   cur.execute('''INSERT INTO PATIENT (FNAME, LNAME) VALUES ("John", "Smith")''')
   print("Data inserted in the table: ")
 
-  data=cur.execute('''SELECT * FROM PATIENT''')
-  for row in data:
-     print(row)
 
 except sqlite3.Error as error:
    print("Error occured -", error)
