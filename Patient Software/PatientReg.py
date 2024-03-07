@@ -1,7 +1,7 @@
 #Patient Registration Software Dev
 #Start Date: February 16
 #Author: Chelsea Slade
-#Python Projects V1.
+
 
 #Import Libraries
 import datetime
@@ -175,8 +175,6 @@ finally:
    if con:
       con.commit()
       con.close()
-      print("--------------------------------------------")
-      print("******* SQLite Connection Closed *******")
 
 print("Thank you for using the Patient Registration Program!")
 print("--------------------------------------------")
