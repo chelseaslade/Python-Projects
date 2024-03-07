@@ -19,7 +19,7 @@ print("--------------------------------------------")
 
 #SQL Lite 3 Database
 try: 
-  con = sqlite3.connect("/Users/student/Documents/GitHub/Python-Projects/Patient Software/patientRecords.db")
+  con = sqlite3.connect("/Users/student/Documents/GitHub - Stored Projects/Python-Projects/Patient Software/patientRecords.db")
   cur = con.cursor()
   print("Program has connected to the Patient Records database.")
   query = "select sqlite_version();"
@@ -35,6 +35,11 @@ try:
   while continueProg == True: 
 
   #User Inputs
+    
+    allowed_characters = set("abcdefghijklmnopqrstuvwxyz ABCEDFGHIJKLMNOPQRSTUVWXYZ ,.-'")
+    allowed_num_only = set("1234567890")
+    allowed_num= set("1234567890-., ")
+
     print("To exit the program, type END in any user input.")
     print("Enter patient information as indicated below: ")
     print()
