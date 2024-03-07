@@ -25,13 +25,40 @@ try:
   print("SQLite version is {}".format(result))
   print()
 
-  patientTable = '''CREATE TABLE PATIENT(FNAME VARCHAR(255), LNAME VARCHAR(255)) ;'''
-  cur.execute(patientTable)
 
-  cur.execute('''INSERT INTO PATIENT (FNAME, LNAME) VALUES ("John", "Smith")''')
-  print("Data inserted in the table: ")
+#Constants
+
+  #Main Program Loop
+  continueProg = True
+  while continueProg == True: 
+
+  #User Inputs
+    ptFirstName = input("Enter patients first name: ").title()
+    ptLastName = input("Enter patients last name: ").title()
+    ptDOB = input("Enter the patients date of birth (YEAR/MONTH/DAY, ex. 2000/01/30): ")
+    ptMCP = input("Enter the patients MCP number: ")
+    ptStAddress = input("Enter the patients street address: (Ex. 99 Hospital Road) ").title()
+    ptCity = input("Enter the patients city: ").title()
+    ptPostalCode = input("Enter the patients postal code: ").upper()
+    ptFamDoc = input("Enter the patients family doctor: ").title()
+    
+
+  #Calculations
+
+  #Patient ID #: 
+
+  #Output
+    print()
+    print(f"Patient Name: {ptFirstName} {ptLastName} ")
+    print(f"Patient Date of Birth: {ptDOB} ")
+    print(f"Patient Address: {ptStAddress} {ptCity} {ptPostalCode} ")
+    print(f"Patient MCP #: {ptMCP} ")
+    print(f"Patient Family Doctor: {ptFamDoc} ")
+    print()
 
 
+#Housekeeping
+  
 except sqlite3.Error as error:
    print("Error occured -", error)
 
@@ -40,37 +67,3 @@ finally:
       con.commit()
       con.close()
       print("SQLite Connection Closed!")
-
-
-#Constants
-
-#Main Program Loop
-continueProg = True
-while continueProg == True: 
-
-#User Inputs
-  ptFirstName = input("Enter patients first name: ").title()
-  ptLastName = input("Enter patients last name: ").title()
-  ptDOB = input("Enter the patients date of birth (YEAR/MONTH/DAY, ex. 2000/01/30): ")
-  ptMCP = input("Enter the patients MCP number: ")
-  ptStAddress = input("Enter the patients street address: (Ex. 99 Hospital Road) ").title()
-  ptCity = input("Enter the patients city: ").title()
-  ptPostalCode = input("Enter the patients postal code: ").upper()
-  ptFamDoc = input("Enter the patients family doctor: ").title()
-  
-
-#Calculations
-
-#Patient ID #: 
-
-#Output
-  print()
-  print(f"Patient Name: {ptFirstName} {ptLastName} ")
-  print(f"Patient Date of Birth: {ptDOB} ")
-  print(f"Patient Address: {ptStAddress} {ptCity} {ptPostalCode} ")
-  print(f"Patient MCP #: {ptMCP} ")
-  print(f"Patient Family Doctor: {ptFamDoc} ")
-  print()
-
-
-#Housekeeping
