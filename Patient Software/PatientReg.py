@@ -80,16 +80,75 @@ try:
     if continueProg == False:
        break
 
-    ptMCP = input("Enter the patients MCP number: ")
-    ptStAddress = input("Enter the patients street address: (Ex. 99 Hospital Road) ").title()
-    ptCity = input("Enter the patients city: ").title()
-    ptPostalCode = input("Enter the patients postal code: ").upper()
-    ptFamDoc = input("Enter the patients family doctor: ").title()
-    
+    while True:
+      ptMCP = input("Enter the patients MCP number: ")
+      if ptMCP.upper() == "END": 
+         continueProg == False
+         break
+      elif ptMCP == "":
+         print("Data entry error: Patient MCP cannot be blank. Please re-enter.")
+         continue
+      else:
+         break
+      
+    if continueProg == False:
+      break
+
+    while True:
+      ptStAddress = input("Enter the patients street address: (Ex. 99 Hospital Road) ").title()
+      if ptStAddress.upper() == "END":
+         continueProg == False
+         break
+      elif ptStAddress == "":
+         print("Data entry error: Patient street address cannot be blank. Please re-enter.")
+         continue
+      else:
+         break
+      
+    if continueProg == False:
+      break
+
+    while True: 
+      ptCity = input("Enter the patients city: ").title()
+      if ptCity.upper() == "END":
+         continueProg == False
+         break
+      elif ptCity == "":
+         print("Data entry error: Patient city cannot be blank. Please re-enter.")
+         continue
+      else:
+         break
+      
     if continueProg == False:
        break
-  #Calculations
+    
+    while True:
+      ptPostalCode = input("Enter the patients postal code: ").upper()
+      if ptPostalCode.upper() == "END":
+         continueProg == False
+         break
+      elif ptPostalCode == "":
+         print("Data entry error: Patient postal code cannot be blank. Please re-enter.")
+         continue
+      else:
+         break
+      
+    if continueProg == False:
+      break
 
+    while True:
+      ptFamDoc = input("Enter the patients family doctor: ").title()
+      if ptFamDoc.upper() == "END":
+         continueProg == False
+         break
+      else:
+         break
+      
+    if continueProg == False:
+       break
+    
+  #Calculations
+    
   #Patient ID #: 
 
   #Output
