@@ -53,8 +53,33 @@ try:
     if continueProg == False:
        break
     
-    ptLastName = input("Enter patients last name: ").title()
-    ptDOB = input("Enter the patients date of birth (YEAR/MONTH/DAY, ex. 2000/01/30): ")
+    while True:   
+      ptLastName = input("Enter patients last name: ").title()
+      if ptLastName.upper() == "END":
+         continueProg == False
+         break
+      elif ptLastName == "":
+         print("Data entry error: Patient last name cannot be blank. Please re-enter.")
+         continue
+      else: break
+
+    if continueProg == False:
+       break
+        
+    while True:
+      ptDOB = input("Enter the patients date of birth (YEAR/MONTH/DAY, ex. 2000/01/30): ")
+      if ptDOB.upper() == "END":
+         continueProg == False
+         break
+      elif ptDOB == "":
+         print("Data entry error: Patient date of birth cannot be blank. Please re-enter.")
+         continue
+      else:
+         break
+
+    if continueProg == False:
+       break
+
     ptMCP = input("Enter the patients MCP number: ")
     ptStAddress = input("Enter the patients street address: (Ex. 99 Hospital Road) ").title()
     ptCity = input("Enter the patients city: ").title()
