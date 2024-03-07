@@ -35,12 +35,24 @@ try:
   while continueProg == True: 
 
   #User Inputs
+    print("To exit the program, type END in any user input.")
     print("Enter patient information as indicated below: ")
     print()
+
     while True:
       ptFirstName = input("Enter patients first name: ").title()
-
-
+      if ptFirstName.upper() == "END":
+         continueProg = False
+         break
+      elif ptFirstName == "":
+         print("Data entry error: Patient first name cannot be blank. Please re-enter.") 
+         continue
+      else:
+         break
+      
+    if continueProg == False:
+       break
+    
     ptLastName = input("Enter patients last name: ").title()
     ptDOB = input("Enter the patients date of birth (YEAR/MONTH/DAY, ex. 2000/01/30): ")
     ptMCP = input("Enter the patients MCP number: ")
@@ -49,7 +61,8 @@ try:
     ptPostalCode = input("Enter the patients postal code: ").upper()
     ptFamDoc = input("Enter the patients family doctor: ").title()
     
-
+    if continueProg == False:
+       break
   #Calculations
 
   #Patient ID #: 
@@ -73,4 +86,8 @@ finally:
    if con:
       con.commit()
       con.close()
-      print("SQLite Connection Closed!")
+      print("--------------------------------------------")
+      print("******* SQLite Connection Closed *******")
+
+print("Thank you for using the Patient Registration Program!")
+print("--------------------------------------------")
