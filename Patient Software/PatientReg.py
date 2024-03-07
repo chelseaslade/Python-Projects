@@ -8,32 +8,39 @@ import datetime
 import sqlite3
 from sqlite3 import Error
 
+#Constants
+
+
+#Welcome to the Program Message
+print()
+print("Welcome to the Patient Registration Program.")
+print()
+print("--------------------------------------------")
+
 #SQL Lite 3 Database
-
-
 try: 
   con = sqlite3.connect("/Users/student/Documents/GitHub/Python-Projects/Patient Software/patientRecords.db")
   cur = con.cursor()
-  print()
-  print("Database connection complete")
-  print()
-
+  print("Program has connected to the Patient Records database.")
   query = "select sqlite_version();"
   cur.execute(query)
 
   result = cur.fetchall()
   print("SQLite version is {}".format(result))
-  print()
+  print("--------------------------------------------")
 
-
-#Constants
 
   #Main Program Loop
   continueProg = True
   while continueProg == True: 
 
   #User Inputs
-    ptFirstName = input("Enter patients first name: ").title()
+    print("Enter patient information as indicated below: ")
+    print()
+    while True:
+      ptFirstName = input("Enter patients first name: ").title()
+
+
     ptLastName = input("Enter patients last name: ").title()
     ptDOB = input("Enter the patients date of birth (YEAR/MONTH/DAY, ex. 2000/01/30): ")
     ptMCP = input("Enter the patients MCP number: ")
