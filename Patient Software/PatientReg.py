@@ -40,7 +40,7 @@ try:
     allowed_num_only = set("1234567890")
     allowed_num= set("1234567890-., ")
 
-    print("To exit the program, type END in any user input.")
+    print("To exit the program, type END in first name input.")
     print("Enter patient information as indicated below: ")
     print()
 
@@ -60,103 +60,78 @@ try:
     
     while True:   
       ptLastName = input("Enter patients last name: ").title()
-      if ptLastName.upper() == "END":
-         continueProg == False
-         break
-      elif ptLastName == "":
+      if ptLastName == "":
          print("Data entry error: Patient last name cannot be blank. Please re-enter.")
          continue
-      else: break
-
-    if continueProg == False:
-       break
+      else: 
+         break
         
     while True:
       ptDOB = input("Enter the patients date of birth (YEAR/MONTH/DAY, ex. 2000/01/30): ")
-      if ptDOB.upper() == "END":
-         continueProg == False
-         break
-      elif ptDOB == "":
+      if ptDOB == "":
          print("Data entry error: Patient date of birth cannot be blank. Please re-enter.")
          continue
       else:
          break
 
-    if continueProg == False:
-       break
-
     while True:
       ptMCP = input("Enter the patients MCP number: ")
-      if ptMCP.upper() == "END": 
-         continueProg == False
-         break
-      elif ptMCP == "":
+      if ptMCP == "":
          print("Data entry error: Patient MCP cannot be blank. Please re-enter.")
          continue
       else:
          break
       
-    if continueProg == False:
-      break
 
     while True:
       ptStAddress = input("Enter the patients street address: (Ex. 99 Hospital Road) ").title()
-      if ptStAddress.upper() == "END":
-         continueProg == False
-         break
-      elif ptStAddress == "":
+      if ptStAddress == "":
          print("Data entry error: Patient street address cannot be blank. Please re-enter.")
          continue
       else:
          break
-      
-    if continueProg == False:
-      break
 
     while True: 
       ptCity = input("Enter the patients city: ").title()
-      if ptCity.upper() == "END":
-         continueProg == False
-         break
-      elif ptCity == "":
+      if ptCity == "":
          print("Data entry error: Patient city cannot be blank. Please re-enter.")
          continue
       else:
          break
-      
-    if continueProg == False:
-       break
     
     while True:
       ptPostalCode = input("Enter the patients postal code: ").upper()
-      if ptPostalCode.upper() == "END":
-         continueProg == False
-         break
-      elif ptPostalCode == "":
+      if ptPostalCode == "":
          print("Data entry error: Patient postal code cannot be blank. Please re-enter.")
          continue
       else:
          break
-      
-    if continueProg == False:
-      break
+   
+    while True:
+      provLst = ["AB", "BC", "NB", "NS", "NL", "QC", "ON", "YT", "NT", "NU", "MB", "SK", "PE"]
+      ptProvince = input("Enter the patients province: (ie. XX) ").upper()
+      if ptProvince == "":
+         print("Data entry error: Patient postal code cannot be blank. Please re-enter.")
+         continue
+      else:
+         break
 
     while True:
       ptFamDoc = input("Enter the patients family doctor: ").title()
-      if ptFamDoc.upper() == "END":
-         continueProg == False
-         break
+      if ptFamDoc == "":
+         print("Data entry error: Patient family doctor cannot be blank. Please re-enter. If the patient has no family doctor at this time, please enter 'none'.")
+         continue
       else:
          break
-      
-    if continueProg == False:
-       break
     
   #Calculations
     
   #Patient ID #: 
 
   #Output
+    print("--------------------------------------------")
+    print()
+    print("PATIENT INFORMATION SUMMARY")
     print()
     print(f"Patient Name: {ptFirstName} {ptLastName} ")
     print(f"Patient Date of Birth: {ptDOB} ")
@@ -164,6 +139,7 @@ try:
     print(f"Patient MCP #: {ptMCP} ")
     print(f"Patient Family Doctor: {ptFamDoc} ")
     print()
+    print("--------------------------------------------")
 
 
 #Housekeeping
