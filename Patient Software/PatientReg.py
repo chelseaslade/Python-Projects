@@ -28,8 +28,25 @@ try:
    print("SQLite version is {}".format(result))
    print("--------------------------------------------")
 
-   #Menu Option One: Add Patient
-   PF.addPatient()
+
+   def mainMenu():
+      while True:
+         optionSelect = input("Please select a menu option (1-4): ")
+         if optionSelect == "1":
+            #Menu Option One: Add Patient
+            PF.addPatient()
+         # elif optionSelect == "2":
+         #    #Menu Option Two: 
+         # elif optionSelect == "3":
+         #    #Menu Option Three:
+         # elif optionSelect == "4":
+         #    #Menu Option Four:
+         # elif optionSelect == "5":
+         #    print("Exiting Patient Software program.")
+         #    break
+         else:
+            print("Invalid menu selection, please re-select.")
+            continue
 
 #Housekeeping
 except sqlite3.Error as error:

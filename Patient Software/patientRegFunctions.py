@@ -2,17 +2,15 @@
 #Author: Chelsea Slade
 #Date: April 17, 2024 -
 
-#Add Patient (Option 1)
-allowed_characters = set("abcdefghijklmnopqrstuvwxyz ABCEDFGHIJKLMNOPQRSTUVWXYZ ,.-'")
-allowed_num_only = set("1234567890")
-allowed_num= set("1234567890-., ")
-
-print("To exit the program, type END in first name input.")
-print("Enter patient information as indicated below: ")
-print()
-
-#Main Program Loop
 def addPatient():
+    allowed_characters = set("abcdefghijklmnopqrstuvwxyz ABCEDFGHIJKLMNOPQRSTUVWXYZ ,.-'")
+    allowed_num_only = set("1234567890")
+    allowed_num= set("1234567890-., ")
+
+    print("To exit the program, type END in first name input.")
+    print("Enter patient information as indicated below: ")
+    print()
+
     continueProg = True
     while continueProg == True: 
 
@@ -95,7 +93,7 @@ def addPatient():
                 continue
             else:
                 break
-        
+
     if continueProg == True:
         print("--------------------------------------------")
         print()
@@ -108,3 +106,7 @@ def addPatient():
         print(f"Patient Family Doctor: {ptFamDoc} ")
         print()
         print("--------------------------------------------")
+
+def searchPatient():
+    continueProg = True
+    while continueProg == True: 
