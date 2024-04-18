@@ -2,6 +2,7 @@
 #Author: Chelsea Slade
 #Date: April 17, 2024 -
 
+#Menu Option One: Add Patient
 def addPatient():
     allowed_characters = set("abcdefghijklmnopqrstuvwxyz ABCEDFGHIJKLMNOPQRSTUVWXYZ ,.-'")
     allowed_num_only = set("1234567890")
@@ -107,6 +108,6 @@ def addPatient():
         print()
         print("--------------------------------------------")
 
-def searchPatient():
-    continueProg = True
-    while continueProg == True: 
+# def searchPatient():
+#     continueProg = True
+#     while continueProg == True: 

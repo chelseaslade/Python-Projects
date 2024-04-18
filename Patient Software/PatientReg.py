@@ -48,6 +48,10 @@ try:
             print("Invalid menu selection, please re-select.")
             continue
 
+
+#Menu
+   mainMenu()
+
 #Housekeeping
 except sqlite3.Error as error:
    print("Error occured -", error)
