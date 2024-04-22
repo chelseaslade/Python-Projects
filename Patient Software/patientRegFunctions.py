@@ -2,6 +2,10 @@
 #Author: Chelsea Slade
 #Date: April 17, 2024 -
 
+#Import Libraries
+import random
+import datetime
+
 #Menu Option One: Add Patient
 def addPatient():
     allowed_characters = set("abcdefghijklmnopqrstuvwxyz ABCEDFGHIJKLMNOPQRSTUVWXYZ ,.-'")
@@ -72,11 +76,15 @@ def addPatient():
 
         while True:
             ptPostalCode = input("Enter the patients postal code: ").upper()
+            provLst = ["AB", "BC", "NB", "NS", "NL", "QC", "ON", "YT", "NT", "NU", "MB", "SK", "PE"]
             if ptPostalCode == "":
                 print("Data entry error: Patient postal code cannot be blank. Please re-enter.")
                 continue
-            else:
+            if ptPostalCode in provLst:
                 break
+            else:
+                print("Data entry error: Province not valid. Please re-enter.")
+                continue
 
         while True:
             provLst = ["AB", "BC", "NB", "NS", "NL", "QC", "ON", "YT", "NT", "NU", "MB", "SK", "PE"]
@@ -94,6 +102,11 @@ def addPatient():
                 continue
             else:
                 break
+
+
+    #Calculations
+    #Patient ID
+
 
     if continueProg == True:
         print("--------------------------------------------")

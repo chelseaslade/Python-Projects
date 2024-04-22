@@ -4,7 +4,6 @@
 #Python Projects V1.
 
 #Import Libraries
-import datetime
 import sqlite3
 from sqlite3 import Error
 import patientRegFunctions as PF
@@ -27,6 +26,7 @@ try:
    result = cur.fetchall()
    print("SQLite version is {}".format(result))
    print("--------------------------------------------")
+   print()
 
 
    def mainMenu():
@@ -36,11 +36,11 @@ try:
             #Menu Option One: Add Patient
             PF.addPatient()
          # elif optionSelect == "2":
-         #    #Menu Option Two: 
+         #    #Menu Option Two: Search Patients
          # elif optionSelect == "3":
-         #    #Menu Option Three:
+         #    #Menu Option Three: View Doctor List
          # elif optionSelect == "4":
-         #    #Menu Option Four:
+         #    #Menu Option Four: Add New Doctor
          # elif optionSelect == "5":
          #    print("Exiting Patient Software program.")
          #    break
