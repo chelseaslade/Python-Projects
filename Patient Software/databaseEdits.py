@@ -17,6 +17,19 @@ print("--------------------------------------------")
 # addColumn = "ALTER TABLE patient ADD COLUMN ptFamDoc varchar(32)"
 # cur.execute(addColumn)
 
+# #Test Add Data
+# ptFName = "Alice"
+# ptLName = "McClean"
+# ptDOB = "1993, 04, 20"
+# ptMCP = "234-235-134"
+# ptStAddress = "3 Block St"
+# ptCity = "Mile City"
+# ptPostalCode = "A3F 4F3"
+# ptProvince = "ON"
+# ptFamDoc = "Dr. Tree"
+
+# cur.execute("INSERT INTO PATIENT (FNAME, LNAME, ptDOB, ptMCP, ptStAddress, ptCity, ptPostalCode, ptProvince, ptFamDoc) VALUES (?,?,?,?,?,?,?,?,?);",(ptFName, ptLName, ptDOB, ptMCP, ptStAddress, ptCity, ptPostalCode, ptProvince, ptFamDoc))
+
 #Add Table to Database
 
 #Delete Data

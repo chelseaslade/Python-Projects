@@ -76,15 +76,11 @@ def addPatient():
 
         while True:
             ptPostalCode = input("Enter the patients postal code: ").upper()
-            provLst = ["AB", "BC", "NB", "NS", "NL", "QC", "ON", "YT", "NT", "NU", "MB", "SK", "PE"]
             if ptPostalCode == "":
                 print("Data entry error: Patient postal code cannot be blank. Please re-enter.")
                 continue
-            if ptPostalCode in provLst:
-                break
             else:
-                print("Data entry error: Province not valid. Please re-enter.")
-                continue
+                break
 
         while True:
             provLst = ["AB", "BC", "NB", "NS", "NL", "QC", "ON", "YT", "NT", "NU", "MB", "SK", "PE"]
@@ -92,8 +88,11 @@ def addPatient():
             if ptProvince == "":
                 print("Data entry error: Patient postal code cannot be blank. Please re-enter.")
                 continue
-            else:
+            if ptProvince in provLst:
                 break
+            else:
+                print("Data entry error: Province not valid. Please re-enter.")
+                continue
 
         while True:
             ptFamDoc = input("Enter the patients family doctor: ").title()
@@ -103,24 +102,46 @@ def addPatient():
             else:
                 break
 
+        #Calculations
+        #Patient ID
 
-    #Calculations
-    #Patient ID
+        randomFourNum = str(random.randint(1111,9999))
+        patientID = ptFirstName[0] + ptLastName[0] + randomFourNum
+
+        #Print Summary
+        if continueProg == True:
+            print("--------------------------------------------")
+            print()
+            print("PATIENT INFORMATION SUMMARY")
+            print()
+            print(f"Patient Name: {ptFirstName} {ptLastName} ")
+            print(f"Patient ID: {patientID}")
+            print(f"Patient Date of Birth: {ptDOB} ")
+            print(f"Patient Address: {ptStAddress} {ptCity} {ptPostalCode} ")
+            print(f"Patient MCP #: {ptMCP} ")
+            print(f"Patient Family Doctor: {ptFamDoc} ")
+            print()
+            print("--------------------------------------------")
+
+        #Check Pt Info to Confirm Addition
+        confirmPtAddition = input("Confirm addition of patient to database (Y/N)").upper()
+        if confirmPtAddition == "Y":
+            #SQL Commands to Add
+            cur.execute("INSERT INTO PATIENT (FNAME, LNAME, ptDOB, ptMCP, ptStAddress, ptCity, ptPostalCode, ptProvince, ptFamDoc) VALUES (?,?,?,?,?,?,?,?,?);",(ptFirstName, ptLastName, ptDOB, ptMCP, ptStAddress, ptCity, ptPostalCode, ptProvince, ptFamDoc))
+        else:
+            break
 
 
-    if continueProg == True:
-        print("--------------------------------------------")
-        print()
-        print("PATIENT INFORMATION SUMMARY")
-        print()
-        print(f"Patient Name: {ptFirstName} {ptLastName} ")
-        print(f"Patient Date of Birth: {ptDOB} ")
-        print(f"Patient Address: {ptStAddress} {ptCity} {ptPostalCode} ")
-        print(f"Patient MCP #: {ptMCP} ")
-        print(f"Patient Family Doctor: {ptFamDoc} ")
-        print()
-        print("--------------------------------------------")
+        #Add Another Patient
+        addPt = input("Patient has been added to database. Would you like to add another patient? (Y/N) ").upper()
+        if addPt == "Y":
+            break
+        else:
+            continueProg = False
+            
 
 # def searchPatient():
 #     continueProg = True
 #     while continueProg == True: 
+
+addPatient()
