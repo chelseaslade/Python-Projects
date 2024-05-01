@@ -5,6 +5,7 @@
 #Import Libraries
 import random
 import datetime
+import sqlite3
 
 #Menu Option One: Add Patient
 def addPatient():
@@ -124,10 +125,15 @@ def addPatient():
             print("--------------------------------------------")
 
         #Check Pt Info to Confirm Addition
-        confirmPtAddition = input("Confirm addition of patient to database (Y/N)").upper()
+        confirmPtAddition = input("Confirm addition of patient to database: (Y/N) ").upper()
         if confirmPtAddition == "Y":
-            #SQL Commands to Add
+            #SQL Commands to Add to Patient Table
+            con = sqlite3.connect("/Users/student/Documents/GitHub - Stored Projects/Python-Projects/Patient Software/patientRecords.db")
+            cur = con.cursor()
             cur.execute("INSERT INTO PATIENT (FNAME, LNAME, ptDOB, ptMCP, ptStAddress, ptCity, ptPostalCode, ptProvince, ptFamDoc) VALUES (?,?,?,?,?,?,?,?,?);",(ptFirstName, ptLastName, ptDOB, ptMCP, ptStAddress, ptCity, ptPostalCode, ptProvince, ptFamDoc))
+            con.commit()
+            con.close()
+            print("Successful!")
         else:
             break
 
@@ -144,4 +150,4 @@ def addPatient():
 #     continueProg = True
 #     while continueProg == True: 
 
-addPatient()
+# addPatient()

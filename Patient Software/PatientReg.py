@@ -16,6 +16,7 @@ print()
 print("--------------------------------------------")
 
 #SQL Lite 3 Database
+#SQL in main program possibly redunant? Use only in functions as needed?
 try: 
    con = sqlite3.connect("/Users/student/Documents/GitHub - Stored Projects/Python-Projects/Patient Software/patientRecords.db")
    cur = con.cursor()
