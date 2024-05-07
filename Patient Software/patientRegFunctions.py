@@ -145,9 +145,56 @@ def addPatient():
         else:
             continueProg = False
             
-
+#Menu Option Two: Search Patients
 # def searchPatient():
 #     continueProg = True
 #     while continueProg == True: 
 
-# addPatient()
+
+#Menu Option Three: View Doc List
+
+#Menu Option Four: Add Doctor
+def addDoctor():
+
+    allowed_characters = set("abcdefghijklmnopqrstuvwxyz ABCEDFGHIJKLMNOPQRSTUVWXYZ ,.-'")
+    allowed_num_only = set("1234567890")
+    allowed_num= set("1234567890-., ")
+
+    print("To exit the program, type END in first name input.")
+    print("Enter patient information as indicated below: ")
+    print()
+
+    continueProg = True
+    while continueProg == True: 
+
+        while True:
+            docFirstName = input("Enter doctors first name: ").title()
+            if docFirstName.upper() == "END":
+                continueProg = False
+                break
+            elif docFirstName == "":
+                print("Data entry error: Doctor first name cannot be blank. Please re-enter.") 
+                continue
+            else:
+                break
+
+        if continueProg == False:
+            break
+
+        while True:   
+            docLastName = input("Enter doctors last name: ").title()
+            if docLastName == "":
+                print("Data entry error: Doctor last name cannot be blank. Please re-enter.")
+                continue
+            else: 
+                break
+
+        while True:
+            docSpecialty = input("Enter the doctors specialty: ").title()
+            if docSpecialty == "":
+                print("Data entry error: Doctor specialty cannot be blank. Please re-enter. (If unknown or not applicable, type 'N/A'. ")
+                continue
+            else:
+                break
+
+    addDoctor()

@@ -7,6 +7,7 @@
 import sqlite3
 from sqlite3 import Error
 import patientRegFunctions as PF
+import PySimpleGUI as sg
 
 
 #Welcome to the Program Message
@@ -14,6 +15,7 @@ print()
 print("Welcome to the Patient Registration Program.")
 print()
 print("--------------------------------------------")
+
 
 #SQL Lite 3 Database
 #SQL in main program possibly redunant? Use only in functions as needed?
@@ -42,7 +44,8 @@ try:
          #    #Menu Option Three: View Doctor List
          # elif optionSelect == "4":
          #    #Menu Option Four: Add New Doctor
-         # elif optionSelect == "5":
+         elif optionSelect == "5":
+            PF.addDoctor()
          #    print("Exiting Patient Software program.")
          #    break
          else:
